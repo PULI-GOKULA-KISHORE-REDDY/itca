@@ -1,0 +1,134 @@
+Intro to Sets
+A set is an abstract data type that can store unique values, without any particular order. Unlike maps, set doesn’t contain key-value pair, it only contains unique keys.
+
+We cannot insert a repetitive value is inserted in the set. If we want to insert a value again, we have to delete the previous values, and then insert the new values.
+
+Type of Elements in a set
+Each element in a set container is also uniquely identified by this value (each value is itself also the element’s key).
+
+Aliased as member types set::key_type and set::value_type.
+
+Why Sets?
+Set is a computer implementation of the mathematical concept of a finite set. Unlike most other collection types, rather than retrieving a specific element from a set, set is used to test membership of a value.
+
+The major advantage of using a set, as opposed to a list, is that it has a highly optimized method for checking whether a specific element is contained in the set.
+
+Examples
+Set interface is collection which does not allow duplicate values.
+
+Few examples can be
+
+Set a chat users - while developing a chat application, where a public chat room must add unique users, we can use set to add user names as value of set.
+Set of unique names - Set can be used to maintain unique names from the list of names.
+Set of unique elements - Set can be used to retrieve unique elements from an unsorted array without the need of sorting it. Hence, solves the problem in O(n) time.
+Basic Functions of set with for key(k) can be
+add(x) - add an element x in the set.
+remove(x) - removes an element x from the set.
+is_element(x) - checks if x exists in the set.
+is_empty() - returns whether the set is empty
+size() - returns the size of the set
+enumerate() - prints all elements of the set
+Implementation of Set in C++
+Set are typically implemented as Binary Search Tree.
+
+Zero sized sets are also valid. In that case set.begin() and set.end() points to same location.
+
+Methods of Set in Standard Template Library
+
+begin() – Returns an iterator to the first element in the set.
+end() – Returns an iterator to the theoretical element that follows last element in the set.
+size() – Returns the number of elements in the set.
+max_size() – Returns the maximum number of elements that the set can hold.
+empty() – Returns whether the set is empty.
+Function for Set Implementation in C++
+
+#include <iostream> 
+#include <iterator> 
+#include <map> 
+  
+using namespace std; 
+  
+int main() 
+{ 
+  // empty set container 
+    set <int, greater <int> > myset;         
+  
+    // insert elements in random order 
+    myset.insert(40); 
+    myset.insert(20); 
+    myset.insert(50); 
+    myset.insert(50); // only one 50 will be added to the set 
+    myset.insert(10); 
+    
+    // printing set myset 
+    set <int, greater <int> > :: iterator itr; 
+    for (itr = myset.begin(); itr != myset.end(); ++itr) 
+    { 
+        cout << *itr << endl; 
+    } 
+     
+    return 0; 
+    
+} 
+Implementation of Set in Python
+Python has built-in set and frozenset types and supports non-empty set literals using a curly-bracket syntax,
+e.g.: {x, y, z}; empty sets must be created using set(), because Python uses {} to represent the empty dictionary.
+
+Frozen sets are implementation of static sets which does not allow insertion / deletion once created.
+Sets are implemented of dynamic sets, which allows insertion / deletion once created.
+
+Methods for Set in Python
+
+add(x) - Adds the item x to set if it is not already present in the set.
+union(s) Method - Returns a union of two set. We use | operator here.
+intersect(s) Method: Returns an intersection of two sets. We use & operator here.
+difference(s) - Returns a set containing all the elements of invoking set but not of the second set. We can use - operator here.
+clear() - Empties the whole set.
+Function for Set Implementation in Python
+
+# Static set
+normal_set = set(["a", "b","c"]) 
+normal_set.add("d") 
+ 
+# Frozen Set
+frozen_set = frozenset(["a", "b", "c"]) 
+# Cannot add elements to frozen set
+# frozen_set.add("h") 
+ 
+# Clear Set
+normal_set.clear()
+ 
+# Print set
+print(normal_set) 
+Implementation of Set in Java
+The Set interface contains only methods inherited from Collection and adds the restriction that duplicate elements are prohibited.
+
+Set is implemented by HashSet, LinkedHashSet or TreeSet - sorted representation.
+
+Methods of Set Interface
+
+add() - Adds an object to the collection.
+clear() - Removes all objects from the collection.
+contains() - Returns true if a specified object is an element within the collection.
+isEmpty() - Returns true if the collection has no elements.
+iterator() - Returns an Iterator object for the collection, which may be used to retrieve an object.
+remove() - Removes a specified object from the collection.
+size() - Returns the number of elements in the collection.
+Function for Set Implementation in Java
+
+import java.util.*; 
+public class Set_Implementation 
+{ 
+    public static void main(String[] args) 
+    { 
+        // Declare set using hashset
+        
+        Set<String> hash_Set = new HashSet<String>(); 
+        hash_Set.add("apple"); 
+        hash_Set.add("banana"); 
+        hash_Set.add("orange"); 
+        hash_Set.add("apple"); //This wont be inserted again
+        
+        System.out.println(hash_Set); 
+    } 
+} 
